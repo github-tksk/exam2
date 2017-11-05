@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <p><%= notice %></p>
+
+    <h1>PICT 一覧</h1>
+
+    <%= link_to "投稿する", new_pict_path, class: 'btn btn-default' %>
+
+    <% @picts.each do |pict| %>
+    <div class="row">
+      <p>ユーザ名: <%= pict.user.name %></p>
+      <p>写真: <%= pict.avatar %></p>
+      <p>本文: <%= pict.content %></p>
+      <%= link_to "編集", edit_pict_path(pict.id), class: 'btn btn-sm btn-warning' %>
+      <%= link_to "削除", pict_path(pict.id), data: { confirm: '本当に削除していいですか？' }, method: :delete, class: 'btn btn-sm btn-info' %>
+    </div>
+    <% end %>
+
+  </div>
+</div>
+

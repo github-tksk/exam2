@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+
+    <h3>以下の内容で、送信する。</h3>
+
+    <%= form_for(@pict) do |f| %>
+
+      <%= pict_img(@pict) if pict_img(@pict) %>
+      <%= f.hidden_field :avatar_cache %>
+      <%= f.hidden_field :content %>
+      <br>
+
+      <p>写真：<%= @pict.avatar %></p>
+      <p>本文：<%= @pict.content %></p>
+      <%= f.submit "投稿", class: 'btn btn-warning btn-block' %>
+    <% end %>
+
+    <%= form_for(@pict, url: new_pict_path, method: 'get') do |f| %>
+      <%= f.hidden_field :avatar_cache %>
+      <%= f.hidden_field :content %>
+      <%= f.submit "戻る", name: 'back', class: 'btn btn-default btn-block' %>
+    <% end %>
+
+  </div>
+</div>
