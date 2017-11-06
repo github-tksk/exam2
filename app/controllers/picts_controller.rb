@@ -4,6 +4,8 @@ class PictsController < ApplicationController
 
   def index
     @picts = Pict.all
+#    binding.pry
+#    raise
   end
 
   def new
