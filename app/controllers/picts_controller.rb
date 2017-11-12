@@ -2,6 +2,8 @@ class PictsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_pict, only: [:edit, :update, :destroy]
 
+  PERMISSIBLE_ATTRIBUTES = %i(picture picture_cache)
+
   def index
     @picts = Pict.all
 #    binding.pry
@@ -19,6 +21,7 @@ class PictsController < ApplicationController
   def create
     @pict = Pict.new(picts_params)
     @pict.user_id = current_user.id
+binding.pry
     if @pict.save
       redirect_to picts_path, notice: "投稿しました"
       NoticeMailer.sendmail_pict(@pict).deliver
@@ -51,10 +54,13 @@ class PictsController < ApplicationController
 
   private
     def picts_params
-      params.require(:pict).permit(:avatar, :content)
+      params.require(:pict).permit(:picture, :content)
     end
 
     def set_pict
       @pict = Pict.find(params[:id])
     end
+
+  protected
+
 end

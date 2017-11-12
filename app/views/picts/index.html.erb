@@ -8,11 +8,13 @@
 
     <% @picts.each do |pict| %>
     <div class="row">
-      <p>ユーザ名: <%= pict.user.name %></p>
-      <p>写真: <%= pict.avatar %></p>
+      <p><%= profile_img(User.find(pict.user_id)) %> <%= pict.user.name %> さんの投稿</p>
+      <p>写真: <%= pict_img(pict) %></p>
       <p>本文: <%= pict.content %></p>
+      <% if pict.user == current_user %>
       <%= link_to "編集", edit_pict_path(pict.id), class: 'btn btn-sm btn-warning' %>
       <%= link_to "削除", pict_path(pict.id), data: { confirm: '本当に削除していいですか？' }, method: :delete, class: 'btn btn-sm btn-info' %>
+      <% end %>
     </div>
     <% end %>
 

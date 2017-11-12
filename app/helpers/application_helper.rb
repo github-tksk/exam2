@@ -1,8 +1,12 @@
 module ApplicationHelper
   def pict_img(pict)
-    return image_tag(pict.avatar) if pict.avatar?
+    return image_tag(pict.picture) if pict.picture?
 
-    img_url = 'no_images.png'
+    unless pict.picture.blank?
+      img_url = pict.picture
+    else
+      img_url = 'no_images.png'
+    end
 
     image_tag(img_url)
   end

@@ -13,9 +13,10 @@
     </div>
   <% end %>
 
+  <%= f.label :picture %>
   <%= pict_img(@pict) if pict_img(@pict) %>
-  <%= f.file_field :avatar, class: 'form-control' %>
-  <%= f.hidden_field :avatar_cache %>
+  <%= f.file_field :picture, class: 'form-control' %>
+  <%= f.hidden_field :picture_cache %>
   <br>
 
   <%= f.label :content %>
