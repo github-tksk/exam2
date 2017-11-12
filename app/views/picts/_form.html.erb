@@ -13,9 +13,9 @@
     </div>
   <% end %>
 
-  <%= f.label :picture %>
+  <%= f.label :写真 %>
   <%= pict_img(@pict) if pict_img(@pict) %>
-  <%= f.file_field :picture, class: 'form-control' %>
+  <%= f.file_field :picture %>
   <%= f.hidden_field :picture_cache %>
   <br>
 
