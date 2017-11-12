@@ -6,8 +6,6 @@ class PictsController < ApplicationController
 
   def index
     @picts = Pict.all
-#    binding.pry
-#    raise
   end
 
   def new
@@ -21,7 +19,6 @@ class PictsController < ApplicationController
   def create
     @pict = Pict.new(picts_params)
     @pict.user_id = current_user.id
-binding.pry
     if @pict.save
       redirect_to picts_path, notice: "投稿しました"
       NoticeMailer.sendmail_pict(@pict).deliver
