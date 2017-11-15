@@ -11,6 +11,7 @@
       <%= f.hidden_field :picture %>
       <br>
 
+      <p>ファイル：<%= @pict.picture %></p>
       <p>本文：<%= @pict.content %></p>
       <%= f.submit "投稿", class: 'btn btn-warning btn-block' %>
     <% end %>

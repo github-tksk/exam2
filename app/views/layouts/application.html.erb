@@ -14,7 +14,7 @@
     <li><%= link_to "Pictgram", root_path %></li>
     <li><%= link_to "閲覧", picts_path %></li>
     <li><a href="#">検索</a></li>
-    <li><a href="#">投稿</a></li>
+    <li><%= link_to "投稿", new_pict_path %></li>
     <li><a href="#">いいね</a></li>
     <% if user_signed_in? %>
       <li><%= link_to 'マイページ', edit_user_registration_path %></li>
