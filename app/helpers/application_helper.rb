@@ -5,7 +5,7 @@ module ApplicationHelper
     unless pict.picture.blank?
       img_url = pict.picture
     else
-      img_url = 'no_images.png'
+      img_url = "no_image.png"
     end
 
     image_tag(img_url)
